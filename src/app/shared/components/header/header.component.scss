@@ -5,3 +5,57 @@ header{
     background-color: rgb(22, 22, 22);
 }
 
+.container-header{
+    padding: 15px;
+}
+
+.container-left{
+    display: flex;
+    align-items: center;
+}
+
+.logo{
+    margin-right: 20px;
+    transition: transform .3s;
+    cursor: pointer;
+
+    &:hover{
+        transform: scale(1.1);
+    }
+}
+
+.categories{
+    border: none;
+    padding: 10px;
+    color: white;
+    font-size: 18px;
+    font-weight: 600;
+    border-radius: 6px;
+    cursor: pointer;
+    background-color: rgb(207, 136, 2);
+    transition: background-color .4s;
+
+    &:hover{
+        background-color: rgb(153, 102, 8); 
+    }
+}
+
+.icon{
+    position: absolute;
+    right: 10px;
+    width: 40px;
+    height: 40px;
+    background-image: url('../../../../assets/icons/menu.png');
+    background-repeat: no-repeat;
+    background-size: contain;
+    cursor: pointer;
+    opacity: 0.5;
+    transition: opacity .4s;
+
+    &:hover{
+        opacity: 1;
+    }
+
+}
+
+
