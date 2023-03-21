@@ -3,15 +3,17 @@ import { CommonModule } from '@angular/common';
 
 import { MangasRoutingModule } from './mangas-routing.module';
 import { MangasComponent } from './mangas.component';
+import { HeaderModule } from 'src/app/shared/components/header/header.module';
 
 
 @NgModule({
   declarations: [
-    MangasComponent
+    MangasComponent,
   ],
   imports: [
     CommonModule,
-    MangasRoutingModule
+    MangasRoutingModule,
+    HeaderModule
   ]
 })
 export class MangasModule { }

@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 
 import { AnimesRoutingModule } from './animes-routing.module';
 import { AnimesComponent } from './animes.component';
+import { HeaderModule } from 'src/app/shared/components/header/header.module';
 
 
 @NgModule({
@@ -11,7 +12,8 @@ import { AnimesComponent } from './animes.component';
   ],
   imports: [
     CommonModule,
-    AnimesRoutingModule
+    AnimesRoutingModule,
+    HeaderModule
   ]
 })
 export class AnimesModule { }
