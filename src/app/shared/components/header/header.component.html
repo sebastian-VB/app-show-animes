@@ -3,9 +3,9 @@
         <div class="container-left">
             <img class="logo" src="../../../../assets/logo.png" alt="">
             <button class="categories">Categorías</button>
-            <div class="icon"></div>
+            <div class="icon" (click)="showContainer()"></div>
         </div>
-        <div class="container-rigth">
+        <div class="container-rigth" *ngIf="showCont">
             <div class="container-input-icon">
                 <div class="input">
                     <input class="searchInput" type="text" placeholder="Título del ánime">

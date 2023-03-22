@@ -7,4 +7,10 @@ import { Component } from '@angular/core';
 })
 export class HeaderComponent {
 
+  showCont:boolean = false;
+
+  showContainer():void{
+    this.showCont = !this.showCont;
+  }
+  
 }
