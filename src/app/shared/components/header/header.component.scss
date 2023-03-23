@@ -47,9 +47,6 @@ header{
     right: 10px;
     width: 40px;
     height: 40px;
-    background-image: url('../../../../assets/icons/menu.png');
-    background-repeat: no-repeat;
-    background-size: contain;
     cursor: pointer;
     opacity: 0.5;
     transition: opacity .4s;
@@ -85,9 +82,6 @@ header{
 .search{
     width: 30px;
     height: 30px;
-    background-image: url('../../../../assets/icons/loupe.png');
-    background-size: contain;
-    background-repeat: no-repeat;
 }
 
 .input{
@@ -111,6 +105,32 @@ header{
     &:focus{
         outline: solid 2px rgb(121, 19, 19);
     }
+}
+
+@media (min-width: 950px){
+
+    .icon{ display: none; }
+
+    .container-header{ flex-direction: row; }
+
+    .container-rigth{ padding-top: 10px; }
+
+    .input, .searchInput{ width: 0; transition: width .8s;}
+
+    .input{ margin-right: 5px; }
+
+    .container-input-icon:hover .input{
+        width: 300px;
+    }
+
+    .container-input-icon:hover .searchInput{
+        width: 280px;
+    }
+
+    // .searchInput:focus{
+    //     width: 280px;
+    // }
+
 }
 
 
