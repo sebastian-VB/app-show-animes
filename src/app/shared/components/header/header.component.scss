@@ -100,7 +100,7 @@ header{
     // width: 0;
     width: 280px;
     outline: solid 2px rgb(226, 0, 0);
-    transition: outline .3s;
+    transition: outline .5s;
 
     &:focus{
         outline: solid 2px rgb(121, 19, 19);
@@ -115,7 +115,9 @@ header{
 
     .container-rigth{ padding-top: 10px; }
 
-    .input, .searchInput{ width: 0; transition: width .8s;}
+    .input, .searchInput{ width: 0; transition: width .8s, outline .5s;}
+
+    .searchInput:focus{outline: solid 2px rgb(121, 19, 19);}
 
     .input{ margin-right: 5px; }
 

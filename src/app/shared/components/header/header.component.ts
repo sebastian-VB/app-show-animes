@@ -1,4 +1,7 @@
 import { Component, HostListener } from '@angular/core';
+import { delay, map, tap } from 'rxjs';
+import { Genre } from '../../interfaces/genre.interface';
+import { GenreService } from '../../services/genre.service';
 
 @Component({
   selector: 'app-header',
@@ -7,9 +10,19 @@ import { Component, HostListener } from '@angular/core';
 })
 export class HeaderComponent {
 
-  showCont:boolean = false;
-  showCont2:boolean = true;
+  showCont:boolean = true;
   whidthBrow: number = 0;
+
+  lisGenre: Genre[] = [];
+
+  constructor(private genreSVC: GenreService){
+    this.genreSVC.getGenres()
+    .pipe(
+      tap((genres: Genre[]) => {
+        this.lisGenre = genres
+      }),    
+    ).subscribe();
+  }
 
   showContainer():void{
     this.showCont = !this.showCont;
