@@ -11,6 +11,8 @@ import { GenreService } from '../../services/genre.service';
 export class HeaderComponent {
 
   showCont:boolean = true;
+  showContcategories: Boolean = false;
+
   whidthBrow: number = 0;
 
   lisGenre: Genre[] = [];
@@ -28,9 +30,14 @@ export class HeaderComponent {
     this.showCont = !this.showCont;
   }
 
+  showContainerCat(): void{
+    this.showContcategories = !this.showContcategories;
+  }
+
   @HostListener('window:resize', ['$event'])
   onResize(event: any){
-    this.whidthBrow = event.target.innerWidth
+    this.whidthBrow = event.target.innerWidth;
+    this.whidthBrow > 950 ? this.showCont = false : this.showCont
   }
   
 }
