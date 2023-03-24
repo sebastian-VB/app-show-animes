@@ -10,20 +10,28 @@ import { GenreService } from '../../services/genre.service';
 })
 export class HeaderComponent {
 
-  showCont:boolean = true;
+  showCont:boolean = false;
   showContcategories: Boolean = false;
 
   whidthBrow: number = 0;
+  idAfter: number = 0;
 
-  lisGenre: Genre[] = [];
+  listGenre: Genre[] = [];
 
   constructor(private genreSVC: GenreService){
     this.genreSVC.getGenres()
     .pipe(
       tap((genres: Genre[]) => {
-        this.lisGenre = genres
+        this.listGenre = genres
+        console.log(genres.length)
       }),    
     ).subscribe();
+  }
+
+  @HostListener('window:resize', ['$event'])
+  onResize(event: any){
+    this.whidthBrow = event.target.innerWidth;
+    this.whidthBrow > 950 ? this.showCont = false : this.showCont
   }
 
   showContainer():void{
@@ -34,10 +42,12 @@ export class HeaderComponent {
     this.showContcategories = !this.showContcategories;
   }
 
-  @HostListener('window:resize', ['$event'])
-  onResize(event: any){
-    this.whidthBrow = event.target.innerWidth;
-    this.whidthBrow > 950 ? this.showCont = false : this.showCont
+  getAnimesCategories(id: number): void{
+    if(id != this.idAfter){
+      console.log(id);
+    }
+    this.idAfter = id;
   }
+
   
 }

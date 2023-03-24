@@ -20,6 +20,10 @@
         </div>
     </div>
     <div class="container-categories" *ngIf="showContcategories">
-
+        <div class="container-check" *ngFor="let genre of listGenre">
+            <input type="checkbox" id="{{genre.name}}" (click)="getAnimesCategories(genre.mal_id)">
+            <label for="{{genre.name}}">{{genre.name}}</label>
+        </div>
+        
     </div>
 </header>

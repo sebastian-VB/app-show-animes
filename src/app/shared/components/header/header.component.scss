@@ -121,11 +121,13 @@ header{
 .container-categories{
     position: absolute;
     border-radius: 8px;
+    padding: 10px;
     left: 50px;
     top: 110px;
-    width: 400px;
-    height: 500px;
+    width: 80%;
     background-color: #181A1B;
+    display: flex;
+    flex-wrap: wrap;
 
     &::before{
         position: absolute;
@@ -138,6 +140,12 @@ header{
         clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
         z-index: -10;
     }
+}
+
+.container-check{
+    display: flex;
+    gap: 5px;
+    padding: 10px;
 }
 
 @media (min-width: 950px){
@@ -164,6 +172,7 @@ header{
 
     .container-categories{
         top: 120px;
+        width: 700px;
     }
     
 }
