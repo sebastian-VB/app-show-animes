@@ -1,20 +1,20 @@
 <header>
-    <div class="container-header">
+    <div class="container-header" id="container-header">
         <div class="container-left">
-            <img class="logo" src="../../../../assets/logo.png" alt="">
+            <img (click)="navigateHomePage()" class="logo" src="../../../../assets/logo.png" alt="">
             <button class="categories" (click)="showContainerCat()">
                 <p>Categorías</p>
                 <img src="../../../../assets/icons/flecha-hacia-abajo.png">
             </button>
             <img class="icon" (click)="showContainer()" src="../../../../assets/icons/menu.png">
         </div>
-        <div class="container-rigth" *ngIf="whidthBrow > 950 ? true : showCont">
+        <div class="container-rigth" *ngIf="showCont">
             <div class="container-input-icon">
                 <div class="input">
                     <input class="searchInput" type="text" placeholder="Título del ánime">
                 </div>
                 <div class="iconSearch">
-                    <img class="search" src="../../../../assets/icons/loupe.png">
+                    <img (click)="getAnimeSearch()" class="search" src="../../../../assets/icons/loupe.png">
                 </div>
             </div>
         </div>

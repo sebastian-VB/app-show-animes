@@ -19,6 +19,6 @@ export class GenreService{
         return this.http.get<ResponseData>(`${environment.apiUrl}genres/manga`).pipe(
             map(res => res.data),
         );
-    }
+    };
 
 }
