@@ -11,7 +11,7 @@
         <div class="container-rigth" *ngIf="showCont">
             <div class="container-input-icon">
                 <div class="input">
-                    <input class="searchInput" type="text" placeholder="Título del ánime">
+                    <input class="searchInput" [(ngModel)]="valorInput" type="text" placeholder="Título del ánime">
                 </div>
                 <div class="iconSearch">
                     <img (click)="getAnimeSearch()" class="search" src="../../../../assets/icons/loupe.png">

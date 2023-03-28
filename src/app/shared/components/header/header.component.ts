@@ -1,6 +1,7 @@
-import { Component, ElementRef, HostListener, OnInit } from '@angular/core';
+import { Component, ElementRef, EventEmitter, HostListener, OnInit, Output } from '@angular/core';
 import { Router } from '@angular/router';
 import { map, tap } from 'rxjs';
+import { Anime } from '../../interfaces/anime.interface';
 import { Genre } from '../../interfaces/genre.interface';
 import { GenreService } from '../../services/genre.service';
 import { SearchAnimeService } from '../../services/searchAnime.service';
@@ -18,7 +19,12 @@ export class HeaderComponent implements OnInit {
   whidthBrow: number = 0;
   idAfter: number = 0;
 
+  valorInput: string = '';
+
   listGenre: Genre[] = [];
+
+  @Output() anime = new EventEmitter<Anime[]>();
+  //anime: Anime[] = [];
 
   constructor(
     private genreSVC: GenreService,
@@ -32,11 +38,6 @@ export class HeaderComponent implements OnInit {
         this.listGenre = genres
       }),    
     ).subscribe();
-    this.searchASvc.getAnime('Dragon ball')
-    .pipe(
-      tap(res => console.log(res))
-    )
-    .subscribe();
   }
   ngOnInit(): void {
     //obtener el tamaño inicial del elemento html 'container-header'
@@ -80,7 +81,15 @@ export class HeaderComponent implements OnInit {
 
   //realizar la accion de buscar - obtener el anime
   getAnimeSearch(): void{
-    console.log('Buscar anime');
+    console.log(this.valorInput);
+    if(this.valorInput !== ''){
+      this.searchASvc.getAnime(this.valorInput)
+      .pipe(
+        tap((anime: Anime[]) => this.anime.emit(anime))
+      )
+      .subscribe();
+      this.valorInput = '';
+    }
   }
 
   
