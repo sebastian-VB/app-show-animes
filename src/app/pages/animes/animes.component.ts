@@ -11,7 +11,9 @@ import { ListAnimeService } from './services/list-anime.service';
 export class AnimesComponent {
 
   zIndexCard: Boolean = false;
+  showConteninerAnimes: Boolean = false;
   listAnime!: Anime[];
+  listAnimeSearch!: Anime[];
 
   constructor(private listAnimeSvc: ListAnimeService){
     this.listAnimeSvc.getListAnime()
@@ -23,6 +25,14 @@ export class AnimesComponent {
 
   zIndex(value: Boolean): void{
     this.zIndexCard = value;
+  }
+
+  showAnimeSearch(animes: Anime[]): void{
+    console.log(animes);
+    if(animes.length !== 0){
+      this.listAnimeSearch = animes;
+      this.showConteninerAnimes = !this.showConteninerAnimes;
+    }
   }
 
 }
