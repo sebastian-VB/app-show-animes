@@ -1,3 +1,6 @@
-<app-header></app-header>
-<app-card></app-card>
-<p>animes works!</p>
+<app-header (zIndexCards)="zIndex($event)"></app-header>
+<div class="container-cards">
+    <ng-container *ngFor="let anime of listAnime">
+        <app-card [style.z-index]="zIndexCard ? -10 : 0" [anime]="anime"></app-card>
+    </ng-container>
+</div>

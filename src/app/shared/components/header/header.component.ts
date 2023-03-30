@@ -23,6 +23,7 @@ export class HeaderComponent implements OnInit {
 
   listGenre: Genre[] = [];
 
+  @Output() zIndexCards = new EventEmitter<Boolean>();
   @Output() anime = new EventEmitter<Anime[]>();
   //anime: Anime[] = [];
 
@@ -64,6 +65,7 @@ export class HeaderComponent implements OnInit {
   //mostrar el contenedor con las categorias
   showContainerCat(): void{
     this.showContcategories = !this.showContcategories;
+    this.zIndexCards.emit(this.showContcategories);
   }
 
   //ir a la pagina home

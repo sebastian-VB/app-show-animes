@@ -15,7 +15,7 @@ import { CardModule } from 'src/app/shared/components/card/card.module';
     CommonModule,
     AnimesRoutingModule,
     HeaderModule,
-    CardModule
+    CardModule,
   ]
 })
 export class AnimesModule { }
