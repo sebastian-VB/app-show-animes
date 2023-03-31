@@ -7,4 +7,8 @@ import { Component } from '@angular/core';
 })
 export class MangasComponent {
 
+  zIndexCard: Boolean = false;
+  showConteninerMangas: Boolean = false;
+  // listAnime!: Anime[];
+  // listAnimeSearch!: Anime[];
 }
