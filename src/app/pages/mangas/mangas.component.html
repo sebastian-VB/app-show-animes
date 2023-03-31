@@ -1,2 +1,17 @@
-<app-header></app-header>
-<p>mangas works!</p>
+<app-header (zIndexCards)="zIndex($event)"></app-header>
+
+<p class="mangas-title-component">MANGAS</p>
+
+<div class="container-cards">
+
+    <ng-container *ngIf="!showConteninerMangas">
+        <ng-container *ngFor="let manga of listManga">
+            <app-card [style.z-index]="zIndexCard ? -10 : 0" [manga]="manga" [showContainerCard]="false"></app-card>
+        </ng-container>
+    </ng-container>
+
+    <ng-container *ngIf="showConteninerMangas">
+        
+    </ng-container>
+
+</div>

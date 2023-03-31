@@ -1,13 +1,15 @@
 <div class="container">
+
     <div class="card-container">
-        <img class="imgAnime" [src]="anime.images.jpg.image_url" alt="">
+        <img class="imgAnime" [src]="showContainerCard ? anime.images.jpg.image_url : manga.images.jpg.image_url" alt="">
         <div class="nameAnime">
-            <p class="title">{{anime.title}}</p>
+            <p class="title">{{showContainerCard ? anime.title: manga.title}}</p>
         </div>
         <div class="sinopsisAnime">
             <p class="sinopsis">
-                {{anime.synopsis}}
+                {{showContainerCard ? anime.synopsis : manga.synopsis}}
             </p>
         </div>
     </div>
+
 </div>

@@ -12,15 +12,19 @@ export class MangasComponent {
 
   zIndexCard: Boolean = false;
   showConteninerMangas: Boolean = false;
-  listAnime!: Manga[];
+  listManga!: Manga[];
   // listAnimeSearch!: Manga[];
 
   constructor(private listMangaSvc: ListMangaService){
     this.listMangaSvc.getListManga()
     .pipe(
-      tap(res => console.log(res))
+      tap((mangas: Manga[]) => this.listManga = mangas)
     )
     .subscribe();
+  }
+
+  zIndex(value: Boolean): void{
+    this.zIndexCard = value;
   }
 
 }
