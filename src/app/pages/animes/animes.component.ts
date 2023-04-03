@@ -31,13 +31,16 @@ export class AnimesComponent {
   showAnimeSearch(anime: string): void{
     console.log(anime);
     if(anime !== null){
-      this.showConteninerAnimes = true;
       this.searchAnimeSvc.getAnime(anime)
       .pipe(
-        tap((listAnime: Anime[]) => console.log(listAnime))
-      )
+        tap((listAnime: Anime[]) => {
+          this.listAnimeSearch = listAnime;
+          console.log(this.listAnimeSearch);
+        })
+        )
       .subscribe()
-    }
+      this.showConteninerAnimes = true;
+      }
   }
 
 }

@@ -34,7 +34,10 @@ export class MangasComponent {
       this.showConteninerMangas = true;
       this.searchMangaSvc.getManga(manga)
       .pipe(
-        tap((listManga: Manga[]) => console.log(listManga))
+        tap((listManga: Manga[]) => {
+          this.listMangaSearch = listManga;
+          console.log(this.listMangaSearch);
+        })
       )
       .subscribe()
     }
