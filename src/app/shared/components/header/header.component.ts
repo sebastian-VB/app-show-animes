@@ -1,10 +1,10 @@
-import { Component, ElementRef, EventEmitter, HostListener, OnInit, Output } from '@angular/core';
+import { Component, ElementRef, EventEmitter, HostListener, Input, OnInit, Output } from '@angular/core';
 import { Router } from '@angular/router';
-import { map, tap } from 'rxjs';
-import { Anime } from '../../interfaces/anime.interface';
+import { tap } from 'rxjs';
+// import { Anime } from '../../interfaces/anime.interface';
 import { Genre } from '../../interfaces/genre.interface';
+// import { Manga } from '../../interfaces/manga.interface';
 import { GenreService } from '../../services/genre.service';
-import { SearchAnimeService } from '../../services/searchAnime.service';
 
 @Component({
   selector: 'app-header',
@@ -23,13 +23,14 @@ export class HeaderComponent implements OnInit {
 
   listGenre: Genre[] = [];
 
+  @Input() animeOrManga = true;
+
   @Output() zIndexCards = new EventEmitter<Boolean>();
-  @Output() anime = new EventEmitter<Anime[]>();
-  //anime: Anime[] = [];
+  @Output() anime = new EventEmitter<string>();
+  @Output() manga = new EventEmitter<string>();
 
   constructor(
     private genreSVC: GenreService,
-    private searchASvc: SearchAnimeService,
     private elRef: ElementRef,
     private router: Router
   ){
@@ -81,18 +82,21 @@ export class HeaderComponent implements OnInit {
     this.idAfter = id;
   }
 
-  //realizar la accion de buscar - obtener el anime
+  //realizar la accion de buscar - obtener el anime y manga
   getAnimeSearch(): void{
-    console.log(this.valorInput);
     if(this.valorInput !== ''){
-      this.searchASvc.getAnime(this.valorInput)
-      .pipe(
-        tap((anime: Anime[]) => this.anime.emit(anime))
-      )
-      .subscribe();
-      this.valorInput = '';
+      this.anime.emit(this.valorInput);
     }
+    this.valorInput = '';
   }
+
+  getMangaSearch(): void{
+    if(this.valorInput !== ''){
+      this.manga.emit(this.valorInput);
+    }
+    this.valorInput = '';
+  }
+
 
   
 }

@@ -14,7 +14,8 @@
                     <input class="searchInput" [(ngModel)]="valorInput" type="text" placeholder="Título del ánime">
                 </div>
                 <div class="iconSearch">
-                    <img (click)="getAnimeSearch()" class="search" src="../../../../assets/icons/loupe.png">
+                    <img (click)=" animeOrManga ? getAnimeSearch() : getMangaSearch()" class="search" src="../../../../assets/icons/loupe.png">
+                    <!-- <img (click)="getAnimeSearch() " class="search" src="../../../../assets/icons/loupe.png"> -->
                 </div>
             </div>
         </div>

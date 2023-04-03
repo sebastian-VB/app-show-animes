@@ -1,4 +1,4 @@
-<app-header (zIndexCards)="zIndex($event)" (anime)="showAnimeSearch($event)"></app-header>
+<app-header (zIndexCards)="zIndex($event)" (anime)="showAnimeSearch($event)" [animeOrManga]="true"></app-header>
 
 <p class="animes-title-component">ANIMES</p>
 
@@ -10,8 +10,9 @@
     </ng-container>
 
     <ng-container *ngIf="showConteninerAnimes">
-        <ng-container *ngFor="let animeSearch of listAnimeSearch">
+        <!-- <ng-container *ngFor="let animeSearch of listAnimeSearch">
             <app-card [style.z-index]="zIndexCard ? -10 : 0" [anime]="animeSearch"></app-card>
-        </ng-container>
+        </ng-container> -->
+        <p>animes buscados</p>
     </ng-container>
 </div>

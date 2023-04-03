@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { tap } from 'rxjs';
 import { Anime } from 'src/app/shared/interfaces/anime.interface';
 import { ListAnimeService } from './services/list-anime.service';
+import { SearchAnimeService } from './services/searchAnime.service';
 
 @Component({
   selector: 'app-animes',
@@ -15,7 +16,7 @@ export class AnimesComponent {
   listAnime!: Anime[];
   listAnimeSearch!: Anime[];
 
-  constructor(private listAnimeSvc: ListAnimeService){
+  constructor(private listAnimeSvc: ListAnimeService, private searchAnimeSvc: SearchAnimeService){
     this.listAnimeSvc.getListAnime()
     .pipe(
       tap((listAnime: Anime[]) => this.listAnime = listAnime)
@@ -27,11 +28,15 @@ export class AnimesComponent {
     this.zIndexCard = value;
   }
 
-  showAnimeSearch(animes: Anime[]): void{
-    console.log(animes);
-    if(animes.length !== 0){
-      this.listAnimeSearch = animes;
-      this.showConteninerAnimes = !this.showConteninerAnimes;
+  showAnimeSearch(anime: string): void{
+    console.log(anime);
+    if(anime !== null){
+      this.showConteninerAnimes = true;
+      this.searchAnimeSvc.getAnime(anime)
+      .pipe(
+        tap((listAnime: Anime[]) => console.log(listAnime))
+      )
+      .subscribe()
     }
   }
 

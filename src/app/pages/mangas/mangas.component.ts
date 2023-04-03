@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { tap } from 'rxjs';
 import { Manga } from 'src/app/shared/interfaces/manga.interface';
 import { ListMangaService } from './services/list-manga.service';
+import { SearchMangaService } from './services/searchManga.service';
 
 @Component({
   selector: 'app-mangas',
@@ -13,18 +14,31 @@ export class MangasComponent {
   zIndexCard: Boolean = false;
   showConteninerMangas: Boolean = false;
   listManga!: Manga[];
-  // listAnimeSearch!: Manga[];
+  listMangaSearch!: Manga[];
 
-  constructor(private listMangaSvc: ListMangaService){
+  constructor(private listMangaSvc: ListMangaService, private searchMangaSvc: SearchMangaService){
     this.listMangaSvc.getListManga()
     .pipe(
-      tap((mangas: Manga[]) => this.listManga = mangas)
+      tap((listMangas: Manga[]) => this.listManga = listMangas)
     )
     .subscribe();
   }
 
   zIndex(value: Boolean): void{
     this.zIndexCard = value;
+  }
+
+  showMangaSearch(manga: string): void{
+    console.log(manga);
+    if(manga !== null){
+      this.showConteninerMangas = true;
+      this.searchMangaSvc.getManga(manga)
+      .pipe(
+        tap((listManga: Manga[]) => console.log(listManga))
+      )
+      .subscribe()
+    }
+    
   }
 
 }

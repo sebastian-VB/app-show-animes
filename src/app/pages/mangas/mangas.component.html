@@ -1,4 +1,4 @@
-<app-header (zIndexCards)="zIndex($event)"></app-header>
+<app-header (zIndexCards)="zIndex($event)" (manga)="showMangaSearch($event)" [animeOrManga]="false"></app-header>
 
 <p class="mangas-title-component">MANGAS</p>
 
@@ -11,7 +11,7 @@
     </ng-container>
 
     <ng-container *ngIf="showConteninerMangas">
-        
+        <p>mangas buscados</p>
     </ng-container>
 
 </div>
