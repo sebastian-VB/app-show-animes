@@ -1,14 +1,14 @@
 
 <section>
     <div class="container-pagination">
-        <img src="../../../../assets/icons/left-arrow.png" alt="">
+        <img src="../../../../assets/icons/left-arrow.png" alt="anterior" (click)="previousPages()">
         <ul>
-            <li><a href="">1</a></li>
-            <li><a href="">2</a></li>
+            <li *ngFor="let page of pagesNumber"><a (click)="selectedPage(page)">{{page}}</a></li>
+            <!-- <li><a href="">2</a></li>
             <li><a href="">3</a></li>
             <li><a href="">4</a></li>
-            <li><a href="">5</a></li>
+            <li><a href="">5</a></li> -->
         </ul>
-        <img src="../../../../assets/icons/right-arrow.png" alt="">
+        <img src="../../../../assets/icons/right-arrow.png" alt="posterior" (click)="nextPages()">
     </div>
 </section>
