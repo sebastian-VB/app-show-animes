@@ -2,7 +2,7 @@
 
 <p class="animes-title-component">ANIMES</p>
 
-<div class="container-cards">
+<!-- <div class="container-cards">
     <ng-container *ngIf="!showConteninerAnimes">
         <ng-container *ngFor="let anime of listAnime">
             <app-card [style.z-index]="zIndexCard ? -10 : 0" [anime]="anime" [showContainerCard]="true"></app-card>
@@ -10,9 +10,11 @@
     </ng-container>
 
     <ng-container *ngIf="showConteninerAnimes">
-        <!-- <ng-container *ngFor="let animeSearch of listAnimeSearch">
-            <app-card [style.z-index]="zIndexCard ? -10 : 0" [anime]="animeSearch"></app-card>
-        </ng-container> -->
         <p>animes buscados</p>
     </ng-container>
-</div>
+</div> -->
+<!-- <ng-container *ngFor="let animeSearch of listAnimeSearch">
+    <app-card [style.z-index]="zIndexCard ? -10 : 0" [anime]="animeSearch"></app-card>
+</ng-container> -->
+
+<app-pagination></app-pagination>

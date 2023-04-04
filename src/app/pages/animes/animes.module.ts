@@ -5,6 +5,7 @@ import { AnimesRoutingModule } from './animes-routing.module';
 import { AnimesComponent } from './animes.component';
 import { HeaderModule } from 'src/app/shared/components/header/header.module';
 import { CardModule } from 'src/app/shared/components/card/card.module';
+import { PaginationModule } from 'src/app/shared/components/pagination/pagination.module';
 
 
 @NgModule({
@@ -16,6 +17,7 @@ import { CardModule } from 'src/app/shared/components/card/card.module';
     AnimesRoutingModule,
     HeaderModule,
     CardModule,
+    PaginationModule,
   ]
 })
 export class AnimesModule { }
