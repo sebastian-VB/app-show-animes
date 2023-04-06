@@ -10,8 +10,10 @@
         </ng-container>
     </ng-container>
 
-    <ng-container *ngIf="showConteninerMangas">
+    <!-- <ng-container *ngIf="showConteninerMangas">
         <p>mangas buscados</p>
-    </ng-container>
+    </ng-container> -->
 
 </div>
+
+<app-pagination (numberPage)="paginationMangas($event)"></app-pagination>

@@ -15,8 +15,11 @@ export class ListMangaService{
 
     constructor(private http: HttpClient){}
 
-    getListManga(): Observable<Manga[]>{
-        return this.http.get<ResponseManga>(`${environment.apiUrl}manga/`).pipe(
+    getListManga(page: number): Observable<Manga[]>{
+
+        const params = {page}
+
+        return this.http.get<ResponseManga>(`${environment.apiUrl}manga/`, {params}).pipe(
             map(res => res.data)
         );
     }

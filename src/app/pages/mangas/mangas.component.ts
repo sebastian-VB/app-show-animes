@@ -17,7 +17,7 @@ export class MangasComponent {
   listMangaSearch!: Manga[];
 
   constructor(private listMangaSvc: ListMangaService, private searchMangaSvc: SearchMangaService){
-    this.listMangaSvc.getListManga()
+    this.listMangaSvc.getListManga(1)
     .pipe(
       tap((listMangas: Manga[]) => this.listManga = listMangas)
     )
@@ -42,6 +42,14 @@ export class MangasComponent {
       .subscribe()
     }
     
+  }
+
+  paginationMangas(page: number): void{
+    this.listMangaSvc.getListManga(page)
+    .pipe(
+      tap((listMangas: Manga[]) => this.listManga = listMangas)
+    )
+    .subscribe();
   }
 
 }
