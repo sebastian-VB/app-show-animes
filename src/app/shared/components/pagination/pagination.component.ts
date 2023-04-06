@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 
 @Component({
   selector: 'app-pagination',
@@ -9,6 +9,7 @@ export class PaginationComponent {
 
   pagesNumber: Array<number> = [1,2,3,4,5];
   totalPageNumber: Array<number> = this.pagesNumber;
+  @Output() numberPage = new EventEmitter<number>();
 
   //mostrar 5 paginas siguientes
   nextPages(): void{
@@ -28,7 +29,8 @@ export class PaginationComponent {
 
   //emitir el valor (pagina) seleccionado
   selectedPage(page: number): void{
-    console.log(`Pagina seleccionada: ${page}`);
+    //console.log(`Pagina seleccionada: ${page}`);
+    this.numberPage.emit(page);
   }
 
 }

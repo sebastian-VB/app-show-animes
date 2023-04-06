@@ -15,8 +15,11 @@ export class ListAnimeService{
 
     constructor(private http: HttpClient){}
 
-    getListAnime(): Observable<Anime[]>{
-        return this.http.get<ResponseListAnime>(`${environment.apiUrl}anime/`).pipe(
+    getListAnime(page: number): Observable<Anime[]>{
+
+        const params = {page}
+
+        return this.http.get<ResponseListAnime>(`${environment.apiUrl}anime/`, {params}).pipe(
             map(res => res.data)
         );
     }

@@ -17,7 +17,7 @@ export class AnimesComponent {
   listAnimeSearch!: Anime[];
 
   constructor(private listAnimeSvc: ListAnimeService, private searchAnimeSvc: SearchAnimeService){
-    this.listAnimeSvc.getListAnime()
+    this.listAnimeSvc.getListAnime(1)
     .pipe(
       tap((listAnime: Anime[]) => this.listAnime = listAnime)
     )
@@ -41,6 +41,15 @@ export class AnimesComponent {
       .subscribe()
       this.showConteninerAnimes = true;
       }
+  }
+
+  paginationAnimes(page: number): void{
+    console.log(page);
+    this.listAnimeSvc.getListAnime(page)
+    .pipe(
+      tap((listAnime: Anime[]) => this.listAnime = listAnime)
+    )
+    .subscribe();
   }
 
 }
